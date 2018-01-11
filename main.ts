@@ -68,6 +68,7 @@ namespace GameConsole{
     //% blockId="ConsoleExcue" block="console excue"
     //% blockGap=20 weight=75
     export function ConsoleExcue(): void {
+        serial.writeLine("pitch=" + input.rotation(Rotation.Pitch))
     }
 
 }
