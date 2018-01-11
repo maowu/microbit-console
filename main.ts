@@ -13,11 +13,11 @@ namespace GameConsole{
     let isTimeCount = 0
 
     /**
-    * 搖桿的執行功能，捕捉A/B按鍵以及加速計的X軸，P0/P1做換裝的設定，震動送出換裝資訊
+    * P0/P1做換裝的設定，震動送出換裝資訊
     */
-    //% blockId="ConsoleExcue" block="console excue"
+    //% blockId="SettingRuntime" block="SettingRuntime"
     //% blockGap=20 weight=75
-    export function ConsoleExcue(): void {
+    export function SettingRuntime(): void {
         if (settingmod == 0) {
             if (input.pinIsPressed(TouchPin.P0)) {
                 basic.showString("Head")
@@ -34,21 +34,6 @@ namespace GameConsole{
                 timer = 300
                 nowSettingTarget = 1
             }
-            
-            if (input.buttonIsPressed(Button.A)) {
-                btnA = 1
-                basic.showString("A")
-            }else {
-                btnA = 0
-            }
-            if (input.buttonIsPressed(Button.B)) {
-                btnB = 1
-                basic.showString("B")
-            }else {
-                btnB = 0
-            }
-
-            
             
         } else {
             if (input.buttonIsPressed(Button.A)) {
@@ -79,4 +64,45 @@ namespace GameConsole{
             basic.pause(10)
         }
     }
+    /**
+    * 搖桿的執行功能，捕捉A/B按鍵以及加速計的X軸，震動送出換裝資訊
+    */
+    //% blockId="ConsoleExcue" block="console excue"
+    //% blockGap=20 weight=75
+    export function ConsoleExcue(): void {
+        if (input.buttonIsPressed(Button.A)) {
+            btnA = 1
+            basic.showString("A")
+        }else {
+            btnA = 0
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            btnB = 1
+            basic.showString("B")
+        }else {
+            btnB = 0
+        }
+        if (btnA!=lastbtnA) {
+            if(btnA > 0) {
+                serial.writeLine("btnA=1")
+            }else {
+                serial.writeLine("btnA=0")
+                basic.clearScreen()
+            }
+            lastbtnA = btnA
+        }
+        if (btnB!=lastbtnB) {
+            if(btnB > 0) {
+                serial.writeLine("btnB=1")
+            }else {
+                serial.writeLine("btnB=0")
+                basic.clearScreen()
+            }
+            lastbtnB = btnB
+        }
+        
+        serial.writeLine("pitch="+ input.rotation(Rotation.Pitch))
+        serial.writeLine("roll=" input.rotation(Rotation.Roll))
+    }
+
 }
