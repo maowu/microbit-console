@@ -19,7 +19,6 @@ namespace GameConsole{
     //% blockGap=20 weight=75
     export function ConsoleExcue(): void {
         if (settingmod == 0) {
-            //basic.showIcon(IconNames.Heart)
             if (input.pinIsPressed(TouchPin.P0)) {
                 basic.showString("Head")
                 basic.pause(500)
@@ -67,8 +66,10 @@ namespace GameConsole{
                 }
                 lastbtnB = btnB
             }
-            serial.writeLine("pitch="+input.rotation(Rotation.Pitch))
-            serial.writeLine("roll="+input.rotation(Rotation.Roll))
+            /*
+            serial.writeLine("pitch="+ input.rotation(Rotation.Pitch))
+            serial.writeLine("roll=" input.rotation(Rotation.Roll))
+            */
         } else {
             if (input.buttonIsPressed(Button.A)) {
                 if (isTimeCount == 0) {
