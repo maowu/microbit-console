@@ -14,7 +14,7 @@ namespace GameConsole{
     * 搖桿的執行功能，捕捉A/B按鍵以及加速計的X軸，P0/P1做換裝的設定，震動送出換裝資訊
     */
     //% blockId="ConsoleExcue" block="console excue"
-    //% blockGap=2 weight=1
+    //% blockGap=20 weight=75
     export function ConsoleExcue(length: number, width:number): void {
         if (settingmod == 0) {
             basic.showIcon(IconNames.Heart)
