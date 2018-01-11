@@ -7,6 +7,8 @@ namespace GameConsole{
     let x = 0
     let btnA = 0
     let btnB = 0
+    let lastbtnA = 0
+    let lastbtnB = 0
     let timer = 0
     let isTimeCount = 0
 
@@ -17,7 +19,7 @@ namespace GameConsole{
     //% blockGap=20 weight=75
     export function ConsoleExcue(): void {
         if (settingmod == 0) {
-            basic.showIcon(IconNames.Heart)
+            //basic.showIcon(IconNames.Heart)
             if (input.pinIsPressed(TouchPin.P0)) {
                 basic.showString("Head")
                 basic.pause(500)
@@ -26,8 +28,47 @@ namespace GameConsole{
                 timer = 300
                 nowSettingTarget = 0
             } else {
-
+                input.pinIsPressed(TouchPin.P1)) {
+                basic.showString("Body")
+                basic.pause(500)
+                settingmod = 1
+                isTimeCount = 0
+                timer = 300
+                nowSettingTarget = 1
             }
+            if (input.buttonIsPressed(Button.A)) {
+                btnA = 1
+                basic.showString("A")
+            }else {
+                btnA = 0
+            }
+            if (input.buttonIsPressed(Button.B)) {
+                btnB = 1
+                basic.showString("B")
+            }else {
+                btnB = 0
+            }
+
+            if (btnA!=lastbtnA) {
+                if(btnA > 0) {
+                    serial.writeLine("btnA=1")
+                }else {
+                    serial.writeLine("btnA=0")
+                    basic.clearScreen()
+                }
+                lastbtnA = btnA
+            }
+            if (btnB!=lastbtnB) {
+                if(btnB > 0) {
+                    serial.writeLine("btnB=1")
+                }else {
+                    serial.writeLine("btnB=0")
+                    basic.clearScreen()
+                }
+                lastbtnB = btnB
+            }
+            serial.writeLine("pitch="+input.rotation(Rotation.Pitch))
+            serial.writeLine("roll="+input.rotation(Rotation.Roll))
         } else {
             if (input.buttonIsPressed(Button.A)) {
                 if (isTimeCount == 0) {
@@ -42,7 +83,7 @@ namespace GameConsole{
                     }
                 }
             }
-
+            
         }
         if (isTimeCount) {
             timer = timer - 1
