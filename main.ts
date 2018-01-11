@@ -21,14 +21,12 @@ namespace GameConsole{
         if (settingmod == 0) {
             if (input.pinIsPressed(TouchPin.P0)) {
                 basic.showString("Head")
-                basic.pause(500)
                 settingmod = 1
                 isTimeCount = 0
                 timer = 300
                 nowSettingTarget = 0
             } else if (input.pinIsPressed(TouchPin.P1)) {
                 basic.showString("Body")
-                basic.pause(500)
                 settingmod = 1
                 isTimeCount = 0
                 timer = 300
@@ -70,7 +68,8 @@ namespace GameConsole{
     //% blockId="ConsoleExcue" block="console excue"
     //% blockGap=20 weight=75
     export function ConsoleExcue(): void {
-        
+        serial.writeLine("pitch="+ input.rotation(Rotation.Pitch))
+        serial.writeLine("roll=" input.rotation(Rotation.Roll))
     }
 
 }
