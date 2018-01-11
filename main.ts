@@ -20,12 +20,14 @@ namespace GameConsole{
     export function SettingRuntime(): void {
         if (settingmod == 0) {
             if (input.pinIsPressed(TouchPin.P0)) {
+                basic.creanScreen()
                 basic.showString("Head")
                 settingmod = 1
                 isTimeCount = 0
                 timer = 300
                 nowSettingTarget = 0
             } else if (input.pinIsPressed(TouchPin.P1)) {
+                basic.creanScreen()
                 basic.showString("Body")
                 settingmod = 1
                 isTimeCount = 0
@@ -63,6 +65,7 @@ namespace GameConsole{
                 basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
+                SettingOutput()
             }
             basic.pause(10)
         }
