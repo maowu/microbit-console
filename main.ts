@@ -15,7 +15,7 @@ namespace GameConsole{
     */
     //% blockId="ConsoleExcue" block="console excue"
     //% blockGap=20 weight=75
-    export function ConsoleExcue(length: number, width:number): void {
+    export function ConsoleExcue(): void {
         if (settingmod == 0) {
             basic.showIcon(IconNames.Heart)
             if (input.pinIsPressed(TouchPin.P0)) {
