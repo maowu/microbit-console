@@ -71,34 +71,34 @@ namespace GameConsole{
         if (input.buttonIsPressed(Button.A)) {
             btnA = 1
             basic.showString("A")
+            serial.writeLine("btnA=1")
         }else {
             btnA = 0
         }
         if (input.buttonIsPressed(Button.B)) {
             btnB = 1
             basic.showString("B")
+            serial.writeLine("btnB=1")
         }else {
             btnB = 0
         }
         if (btnA!=lastbtnA) {
             if(btnA > 0) {
-                serial.writeLine("btnA=1")
+                
             }else {
-                serial.writeLine("btnA=0")
                 basic.clearScreen()
             }
             lastbtnA = btnA
         }
         if (btnB!=lastbtnB) {
             if(btnB > 0) {
-                serial.writeLine("btnB=1")
+                
             }else {
-                serial.writeLine("btnB=0")
                 basic.clearScreen()
             }
             lastbtnB = btnB
         }
-        
+
         serial.writeLine("pitch=" + input.rotation(Rotation.Pitch))
         serial.writeLine("roll=" + input.rotation(Rotation.Roll))
     }
