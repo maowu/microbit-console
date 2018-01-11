@@ -29,7 +29,7 @@ namespace GameConsole{
                 basic.showString("Body")
                 settingmod = 1
                 isTimeCount = 0
-                timer = 300
+                timer = 100
                 nowSettingTarget = 1
             }
             
@@ -44,7 +44,7 @@ namespace GameConsole{
                     }
                 } else {
                     isTimeCount = 1
-                    timer = 300
+                    timer = 100
                     if (nowSettingTarget == 0) {
                         dollhead = (dollhead + 1) % 3
                         basic.showNumber(dollhead + 1)
@@ -60,7 +60,7 @@ namespace GameConsole{
         if (isTimeCount) {
             timer = timer - 1
             if (timer < 0) {
-                basic.showString("Head")
+                basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
             }
