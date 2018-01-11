@@ -13,9 +13,9 @@ namespace GameConsole{
     let isTimeCount = 0
 
     /**
-    * P0/P1做換裝的設定，震動送出換裝資訊
+    * P0/P1做換裝的設定
     */
-    //% blockId="SettingRuntime" block="SettingRuntime"
+    //% blockId="SettingRuntime" block="Setting Runtime"
     //% blockGap=20 weight=75
     export function SettingRuntime(): void {
         if (settingmod == 0) {
@@ -63,7 +63,7 @@ namespace GameConsole{
         }
     }
     /**
-    * 搖桿的執行功能，捕捉A/B按鍵以及加速計的X軸，震動送出換裝資訊
+    * 搖桿的執行功能，捕捉A/B按鍵以及加速計的X軸
     */
     //% blockId="ConsoleExcue" block="console excue"
     //% blockGap=20 weight=75
@@ -103,4 +103,13 @@ namespace GameConsole{
         serial.writeLine("roll=" + input.rotation(Rotation.Roll))
     }
 
+    /**
+    * 送出換裝資訊
+    */
+    //% blockId="SettingOutput" block="Setting Output"
+    //% blockGap=20 weight=75
+    export function SettingOutput(): void {
+        serial.writeLine("dollhead=" + dollhead)
+        serial.writeLine("dollbody=" + dollbody)
+    }
 }
