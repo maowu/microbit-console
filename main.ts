@@ -65,9 +65,6 @@ namespace GameConsole{
                 basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
-
-                serial.writeLine("dollhead=" + dollhead)
-                serial.writeLine("dollbody=" + dollbody)
             }
             basic.pause(10)
         }
