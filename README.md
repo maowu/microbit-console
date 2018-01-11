@@ -11,5 +11,5 @@ MIT
 (The metadata above is needed for package search.)
 
 ```package
-tools=github.com/maowu/microbit-console
+GameConsole=github.com/maowu/microbit-console
 ```
