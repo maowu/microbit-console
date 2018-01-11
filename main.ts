@@ -23,7 +23,7 @@ namespace GameConsole{
                 basic.showString(" Head")
                 settingmod = 1
                 isTimeCount = 0
-                timer = 300
+                timer = input.runningTime()
                 nowSettingTarget = 0
             } else if (input.pinIsPressed(TouchPin.P1)) {
                 basic.showString(" Body")
@@ -44,7 +44,7 @@ namespace GameConsole{
                     }
                 } else {
                     isTimeCount = 1
-                    timer = 100
+                    timer = input.runningTime()
                     if (nowSettingTarget == 0) {
                         dollhead = (dollhead + 1) % 3
                         basic.showNumber(dollhead + 1)
@@ -58,8 +58,7 @@ namespace GameConsole{
             
         }
         if (isTimeCount) {
-            timer = timer - 1
-            if (timer < 0) {
+            if (input.runningTime() - timer > 3000) {
                 basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
@@ -118,4 +117,5 @@ namespace GameConsole{
         serial.writeLine("dollhead=" + dollhead)
         serial.writeLine("dollbody=" + dollbody)
     }
+
 }
