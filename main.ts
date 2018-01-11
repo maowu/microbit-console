@@ -35,6 +35,7 @@ namespace GameConsole{
                 timer = 300
                 nowSettingTarget = 1
             }
+            /*
             if (input.buttonIsPressed(Button.A)) {
                 btnA = 1
                 basic.showString("A")
@@ -66,6 +67,7 @@ namespace GameConsole{
                 }
                 lastbtnB = btnB
             }
+            */
             /*
             serial.writeLine("pitch="+ input.rotation(Rotation.Pitch))
             serial.writeLine("roll=" input.rotation(Rotation.Roll))
