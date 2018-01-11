@@ -27,7 +27,7 @@ namespace GameConsole{
                 timer = 300
                 nowSettingTarget = 0
             } else {
-                input.pinIsPressed(TouchPin.P1)) {
+                input.pinIsPressed(TouchPin.P1)) 
                 basic.showString("Body")
                 basic.pause(500)
                 settingmod = 1
@@ -35,7 +35,7 @@ namespace GameConsole{
                 timer = 300
                 nowSettingTarget = 1
             }
-            /*
+            
             if (input.buttonIsPressed(Button.A)) {
                 btnA = 1
                 basic.showString("A")
@@ -67,11 +67,10 @@ namespace GameConsole{
                 }
                 lastbtnB = btnB
             }
-            */
-            /*
+            
             serial.writeLine("pitch="+ input.rotation(Rotation.Pitch))
             serial.writeLine("roll=" input.rotation(Rotation.Roll))
-            */
+            
         } else {
             if (input.buttonIsPressed(Button.A)) {
                 if (isTimeCount == 0) {
@@ -94,7 +93,6 @@ namespace GameConsole{
                 isTimeCount = 0
                 settingmod = 0
             }
-            //basic.showIcon(IconNames.Duck)
             basic.pause(10)
         }
     }
