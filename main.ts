@@ -37,10 +37,14 @@ namespace GameConsole{
             if (input.buttonIsPressed(Button.A)) {
                 if (isTimeCount == 0) {
                     isTimeCount = 1
-                    basic.showNumber(dollhead + 1)
+                    if (nowSettingTarget == 0) {
+                        basic.showNumber(dollhead + 1)
+                    }else if (nowSettingTarget == 1) {
+                        basic.showNumber(dollbody + 1)
+                    }
                 } else {
                     isTimeCount = 1
-                    timer = 30
+                    timer = 300
                     if (nowSettingTarget == 0) {
                         dollhead = (dollhead + 1) % 3
                         basic.showNumber(dollhead + 1)
@@ -56,6 +60,7 @@ namespace GameConsole{
         if (isTimeCount) {
             timer = timer - 1
             if (timer < 0) {
+                basic.showString("Head")
                 isTimeCount = 0
                 settingmod = 0
             }
