@@ -11,6 +11,7 @@ namespace GameConsole{
     let lastbtnB = 0
     let timer = 0
     let isTimeCount = 0
+    let settingTimecount = 2000
 
     /**
     * P0/P1做換裝的設定
@@ -58,7 +59,7 @@ namespace GameConsole{
             
         }
         if (isTimeCount) {
-            if (input.runningTime() - timer > 3000) {
+            if (input.runningTime() - timer > settingTimecount) {
                 basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
@@ -114,9 +115,9 @@ namespace GameConsole{
     //% blockGap=20 weight=75
     export function SettingOutput(): void {
         serial.writeLine("dollhead=" + dollhead)
-        pause(30)
+        basic.pause(30)
         serial.writeLine("dollbody=" + dollbody)
-        pause(30)
+        basic.pause(30)
         serial.writeLine("change=1")
     }
 
