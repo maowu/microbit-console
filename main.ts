@@ -104,10 +104,10 @@ namespace GameConsole{
             }
             lastbtnB = btnB
         }
-        if(input.runingTime()-imu_tiemr > 100) {
+        if(input.runningTime()-imu_tiemr > 100) {
             serial.writeLine("pitch=" + input.rotation(Rotation.Pitch))
             serial.writeLine("roll=" + input.rotation(Rotation.Roll))
-            imu_tiemr = input.runingTime();
+            imu_tiemr = input.runningTime()
         }
     }
 
