@@ -29,7 +29,7 @@ namespace GameConsole{
                 basic.showString(" Body")
                 settingmod = 1
                 isTimeCount = 0
-                timer = 100
+                timer = input.runningTime()
                 nowSettingTarget = 1
             }
             
@@ -62,7 +62,6 @@ namespace GameConsole{
                 basic.showIcon(IconNames.Heart)
                 isTimeCount = 0
                 settingmod = 0
-                SettingOutput()
             }
             basic.pause(10)
         }
@@ -115,7 +114,10 @@ namespace GameConsole{
     //% blockGap=20 weight=75
     export function SettingOutput(): void {
         serial.writeLine("dollhead=" + dollhead)
+        pause(30)
         serial.writeLine("dollbody=" + dollbody)
+        pause(30)
+        serial.writeLine("change=1")
     }
 
 }
