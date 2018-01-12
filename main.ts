@@ -10,6 +10,7 @@ namespace GameConsole{
     let lastbtnA = 0
     let lastbtnB = 0
     let timer = 0
+    let imu_tiemr = 0;
     let isTimeCount = 0
     let settingTimecount = 2000
 
@@ -103,9 +104,11 @@ namespace GameConsole{
             }
             lastbtnB = btnB
         }
-
-        serial.writeLine("pitch=" + input.rotation(Rotation.Pitch))
-        serial.writeLine("roll=" + input.rotation(Rotation.Roll))
+        if(input.runingTime()-imu_tiemr > 100) {
+            serial.writeLine("pitch=" + input.rotation(Rotation.Pitch))
+            serial.writeLine("roll=" + input.rotation(Rotation.Roll))
+            imu_tiemr = input.runingTime();
+        }
     }
 
     /**
